@@ -23,12 +23,18 @@ items = {
 #Function that prompts the player to decide which direction to go based on where they are currently
 def travel(room):
     current = rooms.get(room)
-    if current == 1 or 3 or 4:
-        choice = int(input(f'You are at {current} you can go East or West\nType [1] to go East\nType [2] to go West\n'))
-    elif current == 0 or 2 or 5 or 6:
-        choice = int(input(f'You are at {current} you can go North or South\nType [1] to go North\nType [2] to go South\n'))
-    return choice
-
+    if current == 0:
+        choice = int(input(f'You are currently at {current}, You can go\nNorth[1]\nSouth[2]\nEast[3]\nWest[3]\nType [1] [2] [3] or [4]'))
+        if choice == 1:
+            choice = f'{current}_north'
+        elif choice == 2:
+            choice = f'{current}_south'
+        elif choice == 3:
+            choice = f'{current}_east'
+        elif choice == 3:
+            choice = f'{current}_west'
+    
+    
 #Function that enters the current room and tells you what item is inside
 #Also shows inventory and updates inventory
 def inside(room):
@@ -45,6 +51,7 @@ def inside(room):
         print(f'Inventory: {inventory}')
     else:
         print("Let's Go!")
+    return room
     
 inventory = []
 
@@ -52,17 +59,12 @@ inventory = []
 print('You wake up and look out your window.  The witches hut is glowing bright colors and you hear screams.')
 print('There must be something you can do!')
 print('You must visit your fellow viliagers and collect items to seige the witches hut!')
-next = int(input('Type [1] to play!'))
+input('Press enter to play')
 
-#Game starts!
-#Room is set by the starting point '0' and choice is set by the travel function
-#Finally we update the room variable based on which direction the player chooses to go
-if next == 1:
-    room = 0
-    choice = travel(0)
-    if choice == 1:
-        print('Heading North!\n\n\n')
-        inside(1)
-    elif choice == 2:
-        print('Heading South!\n\n\n')
-        inside(3)
+
+
+current = 0
+while inventory != '1 Beer' and inventory != '1 Spellbook' and inventory != '4 Potions' and inventory != '1 Sword' and inventory != '3 Pieces of Bread' and inventory != '1 Strange Dagger':
+    choice = travel(current)
+    room = inside(choice)
+
