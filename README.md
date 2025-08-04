@@ -2,7 +2,7 @@
 
 ## Overview
 
-This game will use basic movement commands to navigate between rooms, gather items, and conquer a villian in the end.
+This game will use basic movement commands to navigate between rooms, gather items, and conquer a villain in the end.
 Steps:
 
 - Create dictionary for Items
@@ -28,7 +28,7 @@ Steps:
 
 ### Completed on _07-29-25_
 
-- Somwhat working game! Still some things to flesh out like making sure the directions are accurate but it is playable
+- Some what working game! Still some things to flesh out like making sure the directions are accurate but it is playable
 - Still need an ending but for now if you reach the ending room the program just ends
 - Function for traveling is fixed
 - Function for recieving items will now pass if you already have it in your inventory
